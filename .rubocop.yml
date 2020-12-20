@@ -1,0 +1,45 @@
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - 'bin/*'
+    - 'coverage/**/*'
+    - 'db/migrate/*'
+    - 'db/data/*'
+    - 'db/schema.rb'
+    - 'db/data_schema.rb'
+    - 'log/*'
+    - 'public/**/*'
+    - 'vendor/**/*'
+
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+    - 'spec/**/*'
+    - 'lib/tasks/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - '**/*_spec.rb'
+    - 'spec/factories/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+
+Layout/LineLength:
+  Max: 120
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'lib/tasks/*'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
