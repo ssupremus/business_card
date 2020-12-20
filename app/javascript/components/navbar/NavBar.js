@@ -1,4 +1,5 @@
 import React from 'react';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,15 +7,11 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import clsx from 'clsx';
+import SideBarItem from './SideBarItem';
+// import { width } from "./useWindowDimensions"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,10 +23,24 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+  list: {
+    width: 300,
+    [theme.breakpoints.up("md")]: {
+      width: 300,
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: 500,
+    },
+  }
+}))
 
 export default function ButtonAppBar() {
   const classes = useStyles()
+  // const styles = {
+  //   list: {
+  //     width
+  //   }
+  // }
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -55,20 +66,8 @@ export default function ButtonAppBar() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {["HOME", "RESUME", "BLOG", "CONTACT"].map((text, index) => (
+          <SideBarItem key={text} index={index} text={text} />
         ))}
       </List>
     </div>
@@ -85,6 +84,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <SwipeableDrawer
+            hysteresis={1.0}
             anchor={"right"}
             open={state["right"]}
             onClose={toggleDrawer("right", false)}
