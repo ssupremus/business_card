@@ -1,15 +1,20 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import MenuAppBar from './navbar/NavBar'
-// import Airlines from './Airlines/Airlines'
-// import Airline from './Airline/Airline'
+import { Route, Switch } from "react-router-dom"
+import MenuAppBar from "./navbar/NavBar"
+import Home from "./home/Home"
+import Resume from "./resume/Resume"
+import "fontsource-roboto"
 
 const App = () => {
   return (
-    <MenuAppBar />
+    <div>
+      <MenuAppBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/resume" component={Resume} />
+      </Switch>
+    </div>
     )
-    // <Switch>
-    // </Switch>
     // {/* <Route exact path="/" component={Airlines}/> */}
     // {/* <Route exact path="/airlines/:slug" component={Airline}/> */}
 }

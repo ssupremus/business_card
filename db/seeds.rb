@@ -1,7 +1,70 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# frozen_string_literal: true
+
+Skill.create([
+               {
+                 title: 'Ruby on Rails',
+                 start_date: Date.new(2018, 11, 5),
+                 level: :professional,
+                 position: 1
+               },
+               {
+                 title: 'C',
+                 start_date: Date.new(2018, 1, 26),
+                 level: :very_good,
+                 position: 2
+               },
+               {
+                 title: 'C++',
+                 start_date: Date.new(2018, 9, 28),
+                 level: :limited,
+                 position: 3
+               },
+               {
+                 title: 'Swift',
+                 start_date: Date.new(2019, 1, 20),
+                 level: :limited,
+                 position: 4
+               },
+               {
+                 title: 'HTML/CSS',
+                 start_date: Date.new(2011, 4, 29),
+                 level: :good,
+                 position: 5
+               },
+               {
+                 title: 'SQL',
+                 start_date: Date.new(2018, 6, 15),
+                 level: :good,
+                 position: 6
+               },
+               {
+                 title: 'React JS',
+                 start_date: Date.new(2019, 3, 7),
+                 level: :good,
+                 position: 7
+               },
+               {
+                 title: 'Stimulus JS',
+                 start_date: Date.new(2020, 9, 1),
+                 level: :very_good,
+                 position: 8
+               },
+               {
+                 title: 'MongoDB',
+                 start_date: Date.new(2019, 3, 7),
+                 level: :limited,
+                 position: 9
+               },
+               {
+                 title: 'Linux/Unix',
+                 start_date: Date.new(2018, 1, 26),
+                 level: :professional,
+                 position: 10
+               },
+               {
+                 title: 'Git',
+                 start_date: Date.new(2018, 1, 26),
+                 level: :professional,
+                 position: 11
+               }
+             ])
